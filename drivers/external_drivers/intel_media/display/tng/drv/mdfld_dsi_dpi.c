@@ -658,7 +658,7 @@ static int __dpi_panel_power_off(struct mdfld_dsi_config *dsi_config,
 	  pipe synchronization plus , only avaiable when
 	  timer generator is working*/
 	if (REG_READ(regs->mipi_reg) & BIT31) {
-		retry = 100000;
+		retry = 10000;
 		while (--retry && (REG_READ(regs->pipeconf_reg) & BIT30))
 			udelay(5);
 
